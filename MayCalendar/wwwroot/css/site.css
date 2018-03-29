@@ -1,35 +1,64 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@font-face {
+    font-family: "Bender";
+    src: url("../fonts/Bender.eot?") format("eot"), url("../fonts/Bender.woff") format("woff"), url("../fonts/Bender.ttf") format("truetype"), url("../fonts/Bender.svg#Bender") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+body {
+    background-image: url("../images/background.png");
+    -ms-background-repeat: repeat;
+    background-repeat: repeat;
+    -ms-background-size: 100px 100px;
+    background-size: 100px 100px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.container {
+    width: 300px;
+    margin: auto;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.form {
+    background: #000000;
+    border: solid #00ccff 2px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+    margin: 100px auto 0;
+    padding: 25px;
+    text-align: center;
+}
+
+.form input {
+    font-family: "Bender", sans-serif;
+    border: 0;
+    border-bottom: solid #00ccff 2px;
+    background: #000000;
+    padding: 15px;
     width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 0 15px;
+    font-size: 16px;
+    color: #00ccff;
+    outline: 0;
+    text-align: center;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.form button {
+    font-family: "Bender", sans-serif;
+    outline: 0;
+    background: #000000;
+    width: 100%;
+    border: solid #00ccff 2px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    color: #00ccff;
+    font-size: 16px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
+.form button:hover, .form button:active, .form button:focus { background: #006680; }
