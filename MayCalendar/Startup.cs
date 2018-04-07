@@ -22,7 +22,7 @@ namespace MayCalendar
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseStaticFiles();
-
+            app.UseStatusCodePagesWithRedirects("/error/{0}");
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

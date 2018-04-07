@@ -1,11 +1,13 @@
-﻿@{
+﻿@model MayCalendar.Models.HomeViewModel
+@{
     Layout = "_Layout";
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Проект «Календарь»";
+    var inputClass = Model.WereWrongTry ? "incorrect" : null;
 }
-
 <div class="form">
     <form method="post">
-        <input type="text" autofocus name="answer"/>
-        <button type="submit">Check</button>
+        <label>Введите название произведения</label>
+        <input type="text" autofocus name="answer" id="answer" autocomplete="off" class="@inputClass"/>
+        <button type="submit">Проверить</button>
     </form>
 </div>

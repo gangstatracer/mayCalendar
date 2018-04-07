@@ -45,6 +45,11 @@ body {
     text-align: center;
 }
 
+.form input.incorrect {
+    border-color: #ff3232;
+    color: #ff3232;
+}
+
 .form button {
     font-family: "Bender", sans-serif;
     outline: 0;
