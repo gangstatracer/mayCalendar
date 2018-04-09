@@ -1,16 +1,17 @@
 ﻿using MayCalendar.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Linq;
 
 namespace MayCalendar.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly string correctAnswer;
+        private readonly string[] correctAnswers;
 
         public HomeController(IConfiguration configuration)
         {
-            correctAnswer = configuration.GetSection("Answer")?.Value;
+            correctAnswers = configuration.GetSection("Answers")?.Get<string[]>();
         }
 
         [HttpGet]
@@ -22,7 +23,7 @@ namespace MayCalendar.Controllers
         [HttpPost]
         public IActionResult Index(string answer)
         {
-            if (answer?.ToLowerInvariant() == correctAnswer?.ToLowerInvariant())
+            if (IsAnswerCorrect(answer))
             {
                 return RedirectToAction("Success");
             }
@@ -30,6 +31,11 @@ namespace MayCalendar.Controllers
             {
                 WereWrongTry = !string.IsNullOrEmpty(answer)
             });
+        }
+
+        private bool IsAnswerCorrect(string answer)
+        {
+            return correctAnswers.Contains(answer.ToLowerInvariant());
         }
 
         [HttpGet]

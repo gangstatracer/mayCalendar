@@ -1,27 +1,19 @@
 ﻿@font-face {
-    font-family: "Bender";
-    src: url("../fonts/Bender.eot?") format("eot"), url("../fonts/Bender.woff") format("woff"), url("../fonts/Bender.ttf") format("truetype"), url("../fonts/Bender.svg#Bender") format("svg");
+    font-family: 'Bender';
+    src: url('../fonts/subset-Bender.eot');
+    src: url('../fonts/subset-Bender.eot?#iefix') format('embedded-opentype'), url('../fonts/subset-Bender.woff2') format('woff2'), url('../fonts/subset-Bender.woff') format('woff'), url('../fonts/subset-Bender.ttf') format('truetype'), url('../fonts/subset-Bender.svg#Bender') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-
 body {
-    background-image: url("../images/background.png");
-    -ms-background-repeat: repeat;
-    background-repeat: repeat;
-    -ms-background-size: 100px 100px;
-    background-size: 100px 100px;
+    background-color: #000000;
 }
 
 .container {
     width: 300px;
-    margin: auto;
-}
-
-.form {
-    background: #000000;
-    border: solid #00ccff 2px;
+    background-color: #000000;
+    border: solid #008dd2 2px;
     -ms-border-radius: 10px;
     border-radius: 10px;
     margin: 100px auto 0;
@@ -32,7 +24,7 @@ body {
 .form input {
     font-family: "Bender", sans-serif;
     border: 0;
-    border-bottom: solid #00ccff 2px;
+    border-bottom: solid #008dd2 2px;
     background: #000000;
     padding: 15px;
     width: 100%;
@@ -40,7 +32,7 @@ body {
     box-sizing: border-box;
     margin: 0 0 15px;
     font-size: 16px;
-    color: #00ccff;
+    color: #008dd2;
     outline: 0;
     text-align: center;
 }
@@ -55,15 +47,21 @@ body {
     outline: 0;
     background: #000000;
     width: 100%;
-    border: solid #00ccff 2px;
+    border: solid #008dd2 2px;
     -ms-border-radius: 5px;
     border-radius: 5px;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
     cursor: pointer;
-    color: #00ccff;
+    color: #008dd2;
     font-size: 16px;
 }
 
 .form button:hover, .form button:active, .form button:focus { background: #006680; }
+
+h2 {
+    font-family: "Bender", sans-serif;
+    color: #008dd2;
+    text-align: center;
+}
