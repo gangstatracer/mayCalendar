@@ -1,6 +1,8 @@
 ﻿using MayCalendar.Models;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 
 namespace MayCalendar.Controllers
@@ -8,9 +10,11 @@ namespace MayCalendar.Controllers
     public class HomeController : Controller
     {
         private readonly string[] correctAnswers;
+        private readonly ILogger<HomeController> logger;
 
-        public HomeController(IConfiguration configuration)
+        public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
         {
+            this.logger = logger;
             correctAnswers = configuration.GetSection("Answers")?.Get<string[]>();
         }
 
@@ -46,8 +50,13 @@ namespace MayCalendar.Controllers
         }
 
         [Route("error/{code:int}")]
-        public IActionResult Error()
+        public IActionResult Error(int code)
         {
+            var exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
+            if(exception != null)
+            {
+                logger.LogError(exception, $"Error {code} occured");
+            }
             return View();
         }
     }

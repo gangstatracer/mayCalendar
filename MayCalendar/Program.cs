@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using NLog.Web;
 
 namespace MayCalendar
 {
@@ -13,6 +14,7 @@ namespace MayCalendar
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseNLog()
                 .Build();
     }
 }

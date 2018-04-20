@@ -23,6 +23,7 @@ namespace MayCalendar
         {
             app.UseStaticFiles();
             app.UseStatusCodePagesWithRedirects("/error/{0}");
+            app.UseExceptionHandler("/error/500");
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
