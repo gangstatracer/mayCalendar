@@ -40,7 +40,7 @@ body {
     width: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0 0 15px;
+    margin: 0 0 18px;
     font-size: 16px;
     outline: 0;
     text-align: center;
@@ -49,6 +49,14 @@ body {
 .form input.incorrect {
     border-color: #ff3232;
     color: #ff3232;
+    margin: 0 0 1px;
+}
+
+.validation-error {
+    display: block;
+    margin: 0 0 5px;
+    color: #ff3232;
+    font-size: 11px;
 }
 
 .form button {
@@ -60,7 +68,7 @@ body {
     -ms-border-radius: 5px;
     border-radius: 5px;
     padding: 15px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 14px;
     cursor: pointer;
     color: #008dd2;
@@ -76,3 +84,4 @@ h2 {
     color: #008dd2;
     text-align: center;
 }
+

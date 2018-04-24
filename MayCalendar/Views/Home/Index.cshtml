@@ -8,6 +8,10 @@
     <form method="post">
         <label>Введите название произведения</label>
         <input type="text" autofocus name="answer" id="answer" autocomplete="off" class="@inputClass"/>
+        @if (Model.WereWrongTry)
+        {
+            <label class="validation-error">Неправильно, попробуйте еще раз</label>
+        }
         <button type="submit">Проверить</button>
     </form>
 </div>

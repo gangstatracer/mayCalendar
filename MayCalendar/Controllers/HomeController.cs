@@ -39,7 +39,7 @@ namespace MayCalendar.Controllers
 
         private bool IsAnswerCorrect(string answer)
         {
-            return correctAnswers.Contains(answer.ToLowerInvariant());
+            return correctAnswers.Contains(answer?.ToLowerInvariant());
         }
 
         [HttpGet]
