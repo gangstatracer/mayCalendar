@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MayCalendar.Controllers
 {
@@ -15,7 +16,10 @@ namespace MayCalendar.Controllers
         public HomeController(IConfiguration configuration, ILogger<HomeController> logger)
         {
             this.logger = logger;
-            correctAnswers = configuration.GetSection("Answers")?.Get<string[]>();
+            correctAnswers = configuration.GetSection("Answers")
+                ?.Get<string[]>()
+                .Select(s => Normalize(s))
+                .ToArray();
         }
 
         [HttpGet]
@@ -39,7 +43,12 @@ namespace MayCalendar.Controllers
 
         private bool IsAnswerCorrect(string answer)
         {
-            return correctAnswers.Contains(answer?.ToLowerInvariant());
+            return correctAnswers.Contains(Normalize(answer));
+        }
+
+        private string Normalize(string original)
+        {
+            return new Regex(@"[\s\.,'`’]+").Replace(original, " ")?.ToLowerInvariant();
         }
 
         [HttpGet]

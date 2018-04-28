@@ -7,7 +7,11 @@
 <div class="form">
     <form method="post">
         <label>Введите расшифрованный текст</label>
-        <input type="text" autofocus name="answer" id="answer" autocomplete="off" class="@inputClass"/>
+        <div class="textarea-border-top @inputClass">
+            <div class="textarea-border-bottom @inputClass">
+                <textarea rows="2" maxlength="80" autofocus name="answer" id="answer" autocomplete="off" class="@inputClass"></textarea>
+            </div>
+        </div>
         @if (Model.WereWrongTry)
         {
             <label class="validation-error">Неправильно, попробуйте еще раз</label>

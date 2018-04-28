@@ -1,7 +1,9 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     window.setTimeout(function () {
-        if ((e = document.getElementById("answer")) !== null)
-            e.className = e.className.replace(/\bincorrect\b/g, "");
+        e = document.querySelectorAll(".incorrect");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = e[i].className.replace(/\bincorrect\b/g, "");
+        }
 
         validationLabels = document.getElementsByClassName("validation-error")
         while (validationLabels.length > 0) {

@@ -32,24 +32,83 @@ body {
     }
 }
 
-.form input {
-    border: 0;
-    border-bottom: solid #008dd2 2px;
-    background: #000000;
-    padding: 15px;
+div[class*="textarea-border"] {
+    position: relative;
+}
+
+.textarea-border-top::before {
+    display: block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid #008dd2;
+    border-left: 1px solid #008dd2;
+}
+
+.textarea-border-top::after {
+    display: block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    border-top: 1px solid #008dd2;
+    border-right: 1px solid #008dd2;
+}
+
+.textarea-border-bottom::before{
+    display: block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    border-bottom: 1px solid #008dd2;
+    border-left: 1px solid #008dd2;
+}
+
+.textarea-border-bottom::after {
+    display: block;
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 1px solid #008dd2;
+    border-right: 1px solid #008dd2;
+}
+
+.form textarea {
+    display: block;
     width: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0 0 18px;
+    background-color: #000000;
+    border: none;
+    resize: none;
+    margin: 18px 0 18px;
+    padding: 10px;
     font-size: 16px;
     outline: 0;
     text-align: center;
+    overflow: hidden;
+    background: #002230;
 }
 
-.form input.incorrect {
+.form textarea.incorrect {
     border-color: #ff3232;
     color: #ff3232;
-    margin: 0 0 1px;
+    margin: 18px 0 1px;
+}
+
+.form div.incorrect::after, .form div.incorrect::before {
+    border-color: #ff3232;
 }
 
 .validation-error {
@@ -75,9 +134,9 @@ body {
     font-size: 16px;
 }
 
-    .form button:hover, .form button:active, .form button:focus {
-        background: #006680;
-    }
+.form button:hover, .form button:active, .form button:focus {
+    background: #006680;
+}
 
 h2 {
     font-family: "Bender", sans-serif;
