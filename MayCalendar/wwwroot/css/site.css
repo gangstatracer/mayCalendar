@@ -85,3 +85,7 @@ h2 {
     text-align: center;
 }
 
+p.p-long-text {
+    text-align: left;
+}
+
