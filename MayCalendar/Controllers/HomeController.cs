@@ -48,7 +48,7 @@ namespace MayCalendar.Controllers
 
         private string Normalize(string original)
         {
-            return new Regex(@"[\s\.,'`’]+").Replace(original, " ")?.ToLowerInvariant();
+            return new Regex(@"[\s\.,'`’]+").Replace(original ?? "", " ")?.ToLowerInvariant();
         }
 
         [HttpGet]
