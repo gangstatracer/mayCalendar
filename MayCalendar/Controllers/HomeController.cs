@@ -31,24 +31,44 @@ namespace MayCalendar.Controllers
         [HttpPost]
         public IActionResult Index(string answer)
         {
-            if (IsAnswerCorrect(answer))
+            var isAnswerValid = ValidateAnswer(answer, out var error);
+            if (isAnswerValid)
             {
                 return RedirectToAction("Success");
             }
             return View(new HomeViewModel()
             {
-                WereWrongTry = !string.IsNullOrEmpty(answer)
+                Answer = answer,
+                ValidationError = error,
             });
         }
 
-        private bool IsAnswerCorrect(string answer)
+        private bool ValidateAnswer(string answer, out string validationError)
         {
-            return correctAnswers.Contains(Normalize(answer));
+            validationError = null;
+
+            if (correctAnswers.Contains(Normalize(answer)))
+            {
+                return true;
+            }
+
+            if (!string.IsNullOrEmpty(answer))
+            {
+                if (answer?.IndexOf(' ') < 0)
+                {
+                    validationError = "Не забудьте расставить пробелы";
+                }
+                else
+                {
+                    validationError = "Неправильно, попробуйте еще раз";
+                }
+            }
+            return false;
         }
 
         private string Normalize(string original)
         {
-            return new Regex(@"[\s\.,'`’]+").Replace(original ?? "", " ")?.ToLowerInvariant();
+            return new Regex(@"[\s\.,'`’]+").Replace(original ?? "", " ")?.ToLowerInvariant().Trim();
         }
 
         [HttpGet]

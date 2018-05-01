@@ -2,6 +2,7 @@ namespace MayCalendar.Models
 {
     public class HomeViewModel
     {
-        public bool WereWrongTry { get; set; }
+        public string Answer { get; set; }
+        public string ValidationError { get; set; }
     }
 }
